@@ -2,6 +2,7 @@ package tests.demoqa;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -21,6 +22,7 @@ public class RegistrationFormTests extends TestBase {
         Configuration.browserSize = "1920x1080";
     }
     @Test
+    @DisplayName("Successfully filling form")
     void successfulTest() {
 
         String firstName = "Ivan",
