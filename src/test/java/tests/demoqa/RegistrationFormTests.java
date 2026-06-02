@@ -74,11 +74,8 @@ public class RegistrationFormTests extends TestBase {
         $("#submit").click();
         });
 
-        step("", () -> {
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        });
-
         step("Check form results", () -> {
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text(firstName + " " + lastName),
                 text(email),
                 text(current_address),
