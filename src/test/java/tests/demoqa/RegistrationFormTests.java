@@ -15,12 +15,6 @@ import static io.qameta.allure.Allure.step;
 
 public class RegistrationFormTests extends TestBase {
 
-    @BeforeAll
-    static void setUp() {
-        //Configuration.holdBrowserOpen = true;
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-    }
     @Test
     @DisplayName("Successfully filling form")
     void successfulTest() {
