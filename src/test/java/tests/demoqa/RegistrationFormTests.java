@@ -1,7 +1,5 @@
 package tests.demoqa;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -38,47 +36,47 @@ public class RegistrationFormTests extends TestBase {
         File file = new File("src/test/resources/picture1.jpg");
 
         step("Open registration form", () -> {
-        open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+            open("/automation-practice-form");
+            $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 //        executeJavaScript("$('footer').remove()");
 //        executeJavaScript("$('#fixedban').remove()");
         });
         step("Fill form", () -> {
-        $("#firstName").setValue(firstName);
-        $("#lastName").setValue(lastName);
-        $("#userEmail").setValue(email);
-        $("#genterWrapper").$(byText(gender)).click();
-        $("#userNumber").setValue(mobileNumber);
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption(monthOfBirth);
-        $(".react-datepicker__year-select").selectOption(yearOfBirth);
-        $(".react-datepicker__day--0" + dayOfBirth).click();
-        $("#subjectsInput").setValue(subject1);
-        $("#subjectsInput").pressEnter();
-        $("#subjectsInput").setValue(subject2);
-        $("#subjectsInput").pressEnter();
-        $("#hobbiesWrapper").$(byText(hobby1)).click();
-        $("#hobbiesWrapper").$(byText(hobby2)).click();
-        $("#uploadPicture").uploadFile(file);
-        $("#currentAddress").setValue(current_address);
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText(state)).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText(city)).click();
-        $("#submit").click();
+            $("#firstName").setValue(firstName);
+            $("#lastName").setValue(lastName);
+            $("#userEmail").setValue(email);
+            $("#genterWrapper").$(byText(gender)).click();
+            $("#userNumber").setValue(mobileNumber);
+            $("#dateOfBirthInput").click();
+            $(".react-datepicker__month-select").selectOption(monthOfBirth);
+            $(".react-datepicker__year-select").selectOption(yearOfBirth);
+            $(".react-datepicker__day--0" + dayOfBirth).click();
+            $("#subjectsInput").setValue(subject1);
+            $("#subjectsInput").pressEnter();
+            $("#subjectsInput").setValue(subject2);
+            $("#subjectsInput").pressEnter();
+            $("#hobbiesWrapper").$(byText(hobby1)).click();
+            $("#hobbiesWrapper").$(byText(hobby2)).click();
+            $("#uploadPicture").uploadFile(file);
+            $("#currentAddress").setValue(current_address);
+            $("#state").click();
+            $("#stateCity-wrapper").$(byText(state)).click();
+            $("#city").click();
+            $("#stateCity-wrapper").$(byText(city)).click();
+            $("#submit").click();
         });
 
         step("Check form results", () -> {
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text(firstName + " " + lastName),
-                text(email),
-                text(current_address),
-                text(mobileNumber),
-                text(subject1 + ", " + subject2),
-                text(state + " " + city),
-                text(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth),
-                text(gender),
-                text(hobby1 + ", " + hobby2));
+            $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+            $(".table-responsive").shouldHave(text(firstName + " " + lastName),
+                    text(email),
+                    text(current_address),
+                    text(mobileNumber),
+                    text(subject1 + ", " + subject2),
+                    text(state + " " + city),
+                    text(dayOfBirth + " " + monthOfBirth + "," + yearOfBirth),
+                    text(gender),
+                    text(hobby1 + ", " + hobby2));
         });
     }
 }
