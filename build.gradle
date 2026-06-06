@@ -73,6 +73,11 @@ tasks.register('properties_test5', Test) {
 tasks.register('hello_test', Test) {
         useJUnitPlatform {
             includeTags 'hello'
-            excludeTags 'prod'
+        }
+}
+
+tasks.register('simple_tests', Test) {
+        useJUnitPlatform {
+            includeTags 'simple'
         }
 }
