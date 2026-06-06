@@ -43,4 +43,11 @@ public class SystemPropertiesTests {
         System.out.println(browserSize);
 
     }
+
+    @Test
+    @Tag("hello")
+    void someTets6() {
+        System.out.println("Hello " +  System.getProperty("anyText"));
+
+    }
 }

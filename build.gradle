@@ -34,7 +34,10 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-test {
+tasks.withType(Test) {
+
+    systemProperties(System.getProperties())
+
     useJUnitPlatform()
     systemProperty("allure.results.directory", "build/allure-results")
 
@@ -44,12 +47,7 @@ test {
             exceptionFormat "short"
         }
     }
-}
 
-tasks.register('properties_test5', Test) {
-    useJUnitPlatform {
-        includeTags 'test5'
-    }
     testClassesDirs = sourceSets.test.output.classesDirs
     classpath = sourceSets.test.runtimeClasspath
 
@@ -62,4 +60,19 @@ tasks.register('properties_test5', Test) {
     afterSuite { desc, result ->
         println "Tests executed: ${result.testCount}"
     }
+}
+
+tasks.register('properties_test5', Test) {
+    useJUnitPlatform {
+        includeTags 'test5'
+        excludeTags 'prod'
+    }
+
+}
+
+tasks.register('hello_test', Test) {
+        useJUnitPlatform {
+            includeTags 'hello'
+            excludeTags 'prod'
+        }
 }
