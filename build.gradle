@@ -29,7 +29,9 @@ dependencies {
             'org.junit.jupiter:junit-jupiter',
             'com.codeborne:selenide:7.16.0',
             'org.slf4j:slf4j-simple:2.0.16',
-            'io.qameta.allure:allure-selenide:2.34.0'
+            'io.qameta.allure:allure-selenide:2.34.0',
+            'org.aeonbits.owner:owner:1.0.12'
+
     )
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
@@ -71,8 +73,15 @@ tasks.register('properties_test5', Test) {
 }
 
 tasks.register('hello_test', Test) {
+    useJUnitPlatform {
+        includeTags 'hello'
+        excludeTags 'prod'
+    }
+}
+
+tasks.register('owner_test', Test) {
         useJUnitPlatform {
-            includeTags 'hello'
+            includeTags 'owner'
             excludeTags 'prod'
         }
 }
